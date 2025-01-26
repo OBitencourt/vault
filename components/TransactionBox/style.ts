@@ -69,6 +69,7 @@ export const StyledTextField = styled.textarea`
     font-family: var(--font-koho);
     font-size: 1.1em;
     margin-top: 10px;
+    color: white;
     &::placeholder {
         color: white;
     }
@@ -84,4 +85,9 @@ export const AddButton = styled.button`
     padding: 5px 10px;
     align-self: flex-end;
     margin-top: 10px;
+    transition: all 100ms ease-in-out;
+    
+    &:hover {
+        filter: brightness(1.15);
+    }
 `

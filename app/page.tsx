@@ -12,7 +12,16 @@ const Home = () => {
         maxWidth='lg'
         sx={{paddingTop: '100px'}}
       >
-        <TransactionBox />
+        <TransactionBox title='Receitas' upOrDown='up-trend-icon.svg'/>  
+
+        <div style={{
+          height: '1px',
+          width: '600px',
+          backgroundColor: '#C5C5C5',
+          margin: '50px 0 50px 0'
+        }}></div>
+
+        <TransactionBox title='Despesas' upOrDown='down-trend-icon.svg' />
       </Container>
     </>
   )

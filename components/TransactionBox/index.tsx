@@ -1,15 +1,17 @@
 import Image from "next/image"
 import { AddButton, Box, InputsWrapper, MainTitle, StyledInput, StyledTextField } from "./style"
 
-const TransactionBox = ({
 
+const TransactionBox = ({
+    title,
+    upOrDown
 }) => {
 
     return (
         <>
             <Box>
                 <MainTitle>
-                    Receitas
+                    {title}
                     <div
                         style={{
                             borderRadius: '20px',
@@ -18,7 +20,7 @@ const TransactionBox = ({
                         }}
                     >
                         <Image 
-                            src='/images/up-trend-icon.svg'
+                            src={`/images/${upOrDown}`}
                             alt="up-tend"
                             height={30}
                             width={30}
