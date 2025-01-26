@@ -22,8 +22,8 @@ const TransactionBox = ({
                         <Image 
                             src={`/images/${upOrDown}`}
                             alt="up-tend"
-                            height={30}
-                            width={30}
+                            height={25}
+                            width={25}
                         />
                     </div>
                 </MainTitle>

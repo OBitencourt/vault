@@ -1,7 +1,9 @@
 import Image from "next/image"
 import { IconWrapper, StyledTransaction } from "./style"
 
-const Transaction = () => {
+const Transaction = ({
+
+}) => {
 
     return (
         <>  
@@ -39,7 +41,7 @@ const Transaction = () => {
                     />
 
                 </div>
-                <h2>3.450,00 €</h2>
+                <h2>500,00 €</h2>
                 <IconWrapper>
                     <Image 
                         src='/images/trash-icon.svg'

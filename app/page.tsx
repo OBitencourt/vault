@@ -1,6 +1,6 @@
-import Header from "@/components/Header"
-import TransactionBox from "@/components/TransactionBox"
-import TransactionsInfo from "@/components/TransactionsInfo"
+import Header from "@/src/components/Header"
+import TransactionBox from "@/src/components/TransactionBox"
+import TransactionsInfo from "@/src/components/TransactionsInfo"
 import { Container } from "@mui/material"
 
 const Home = () => {
