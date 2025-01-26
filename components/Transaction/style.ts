@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-export const StyledTransaction = styled.div<{ moreOrLess: boolean }>`
+export const StyledTransaction = styled.div<{ $moreOrLess: boolean }>`
     border-bottom: 1px solid #CCCCCC;
     padding: 15px 2px 15px 2px;
     font-family: var(--font-krub);
@@ -12,14 +12,24 @@ export const StyledTransaction = styled.div<{ moreOrLess: boolean }>`
     color: var(--color-secondary);
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     & h2 {
         display: block;
         padding: 0 40px 0 40px;
         border-right: 1px solid #CCCCCC;
         border-left: 1px solid #CCCCCC;
-        color: ${({moreOrLess}) => (moreOrLess ? '#4EB441' : '#D51532')};
+        color: ${({$moreOrLess}) => ($moreOrLess ? '#4EB441' : '#D51532')};
         // color: #4EB441;
         font-weight: 500;
+    }
+`
+
+export const IconWrapper = styled.div`
+    padding: 8px;
+    border-radius: 100%;
+    cursor: pointer;
+    &:hover {
+        background-color:rgb(225, 224, 224);
     }
 `

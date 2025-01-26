@@ -1,11 +1,11 @@
 import Image from "next/image"
-import { StyledTransaction } from "./style"
+import { IconWrapper, StyledTransaction } from "./style"
 
 const Transaction = () => {
 
     return (
         <>  
-            <StyledTransaction moreOrLess={true}>
+            <StyledTransaction $moreOrLess={true}>
                 <div style={{display: 'flex', width: '100px'}}>
                     <h3>Salário</h3>
                     <Image 
@@ -18,16 +18,18 @@ const Transaction = () => {
 
                 </div>
                 <h2>3.450,00 €</h2>
-                <Image 
-                    src='/images/trash-icon.svg'
-                    alt="trash"
-                    width={30}
-                    height={30}
-                />
+                <IconWrapper>
+                    <Image 
+                        src='/images/trash-icon.svg'
+                        alt="trash"
+                        width={30}
+                        height={30}
+                    />
+                </IconWrapper>
             </StyledTransaction>
-            <StyledTransaction moreOrLess={false}>
+            <StyledTransaction $moreOrLess={false}>
                 <div style={{display: 'flex', width: '100px', flexWrap: 'wrap'}}>
-                    <h3 style={{display: 'block', width: '130px', wordWrap: 'break-word', overflowWrap: 'break-word'}}>ASdawdaAswdwa</h3>
+                    <h3 style={{width: '60px', wordWrap: 'break-word', overflowWrap: 'break-word'}}>TV</h3>
                     <Image 
                         src='/images/down-trend-icon.svg'
                         alt="up"
@@ -38,12 +40,14 @@ const Transaction = () => {
 
                 </div>
                 <h2>3.450,00 €</h2>
-                <Image 
-                    src='/images/trash-icon.svg'
-                    alt="trash"
-                    width={30}
-                    height={30}
-                />
+                <IconWrapper>
+                    <Image 
+                        src='/images/trash-icon.svg'
+                        alt="trash"
+                        width={30}
+                        height={30}
+                    />
+                </IconWrapper>
             </StyledTransaction>
         </>
     )
