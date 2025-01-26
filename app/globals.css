@@ -5,6 +5,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-primary: #6C29C1;
+  --color-secondary: #534564;
+  --color-tiertiary: #50396F;
+
 }
 
 body {
