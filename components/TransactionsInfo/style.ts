@@ -23,6 +23,17 @@ export const TransactionsWrapper = styled.div`
     height: 600px;
     background-color: white;
     border-radius: 22.5px;
+    font-family: var(--font-koho);
+    padding: 20px;
+    text-align: center;
+
+    & h4 {
+        font-size: 1.4em;
+        font-weight: 600;
+        color: var(--color-tiertiary);
+        margin-left: -10px;
+        margin-bottom: 20px;
+    }
 `
 
 export const TotalWrapper = styled.div`

@@ -1,3 +1,4 @@
+import Transaction from "../Transaction"
 import { BigBox, TotalWrapper, TransactionsWrapper } from "./style"
 
 const TransactionsInfo = () => {
@@ -6,6 +7,8 @@ const TransactionsInfo = () => {
         <>
             <BigBox>
                 <TransactionsWrapper>
+                    <h4>Transações:</h4>
+                    <Transaction />
 
                 </TransactionsWrapper>
                 <TotalWrapper>
