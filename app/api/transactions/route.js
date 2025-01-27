@@ -1,19 +1,49 @@
 import dbConnect from '@/src/utils/dbConnect'
+import TransactionsModel from '@/src/models/transactions.js'
 
-export async function GET(request) {
-    console.log(request, 'Ok.')
-
+export async function GET(req) {
+    console.log(req, 'Ok.')
     await dbConnect()
+    const transactions = await TransactionsModel.find()
 
-    return new Response(JSON.stringify({ message: "Hello, world!" }), {
+    return new Response(JSON.stringify({ success: "Transações achadas com sucesso!", data: transactions }), {
       headers: { "Content-Type": "application/json" },
     });
 }
  
-/*export async function POST(request) {
-  const body = await request.json();
-  return new Response(JSON.stringify({ message: "Transaction created", data: body }), {
+export async function POST(req) {
+  await dbConnect()
+
+  const {
+    name,
+    value,
+    description,
+    revenue 
+  } = await req.json()
+
+  if (!name || !value) {
+    return new Response(
+      JSON.stringify({ error: "Fields 'name' and 'value' are required" }),
+      {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+  }
+
+
+
+  const transaction = new TransactionsModel({
+    name,
+    value,
+    description: description || '',
+    revenue: revenue || false
+  })
+
+  transaction.save()
+
+  return new Response(JSON.stringify({ message: "Transaction created", data: req.json() }), {
     status: 201,
     headers: { "Content-Type": "application/json" },
   });
-}*/
+}
