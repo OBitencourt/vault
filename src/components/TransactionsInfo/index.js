@@ -24,7 +24,6 @@ const TransactionsInfo = () => {
 
 
 
-
     return(
 
         <>
@@ -33,14 +32,20 @@ const TransactionsInfo = () => {
                     <h4>Transações:</h4>
 
                     {
-                        transactions.map(transaction => (
-                            <Transaction
-                                key={transaction._id}
-                                name={transaction.name}
-                                value={transaction.value}
-                                description={transaction.description}
-                            />
-                        ))
+                        transactions.map(transaction => {
+                            console.log(transaction.revenue)
+                            return (
+
+                                <Transaction
+                                    key={transaction._id}
+                                    name={transaction.name}
+                                    value={transaction.value}
+                                    description={transaction.description}
+                                    revenue={transaction.revenue}
+                                    id={transaction._id}
+                                />
+                            )
+                        })
                     }
                     <Transaction />
 

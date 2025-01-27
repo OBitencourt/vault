@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-export const StyledTransaction = styled.div<{ $moreOrLess: boolean }>`
+export const StyledTransaction = styled.div<{ $isRevenue: boolean }>`
     border-bottom: 1px solid #CCCCCC;
     padding: 15px 2px 15px 2px;
     font-family: var(--font-krub);
@@ -19,7 +19,7 @@ export const StyledTransaction = styled.div<{ $moreOrLess: boolean }>`
         padding: 0 40px 0 40px;
         border-right: 1px solid #CCCCCC;
         border-left: 1px solid #CCCCCC;
-        color: ${({$moreOrLess}) => ($moreOrLess ? '#4EB441' : '#D51532')};
+        color: ${({$isRevenue}) => ($isRevenue ? '#4EB441' : '#D51532')};
         // color: #4EB441;
         font-weight: 500;
     }
