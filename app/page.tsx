@@ -17,6 +17,7 @@ const Home = () => {
           <TransactionBox 
             title='Receitas' 
             upOrDown='up-trend-icon.svg'
+            revenue={true}
           />  
 
           <div style={{
@@ -29,6 +30,7 @@ const Home = () => {
           <TransactionBox
             title='Despesas'
             upOrDown='down-trend-icon.svg' 
+            revenue={false}
           />
         </div>
         <TransactionsInfo />

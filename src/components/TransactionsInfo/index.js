@@ -47,7 +47,6 @@ const TransactionsInfo = () => {
                             )
                         })
                     }
-                    <Transaction />
 
                 </TransactionsWrapper>
                 <TotalWrapper>
