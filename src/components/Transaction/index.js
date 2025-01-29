@@ -32,7 +32,7 @@ const Transaction = ({
                     />
 
                 </div>
-                <h2>{value} €</h2>
+                <h2>{value}</h2>
                 <IconWrapper onClick={() => handleButtonClick(id)}>
                     <Image 
                         src='/images/trash-icon.svg'
