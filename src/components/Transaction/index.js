@@ -1,14 +1,22 @@
 import Image from "next/image"
 import { IconWrapper, StyledTransaction } from "./style"
+import axios from "axios"
+
 
 const Transaction = ({
     name,
     // description,
     value,
     revenue,
-    // id
+    id
 }) => {
 
+    const handleButtonClick = id => {
+        console.log(id)
+        axios.delete(`http://localhost:3000/api/transactions/${id}`).then(response => {
+            console.log(response, 'Transação deletada com sucesso!')
+        })
+    }
 
     return (
         <>  
@@ -25,7 +33,7 @@ const Transaction = ({
 
                 </div>
                 <h2>{value} €</h2>
-                <IconWrapper>
+                <IconWrapper onClick={() => handleButtonClick(id)}>
                     <Image 
                         src='/images/trash-icon.svg'
                         alt="trash"

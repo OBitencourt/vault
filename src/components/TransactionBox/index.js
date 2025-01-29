@@ -31,7 +31,9 @@ const TransactionBox = ({ title, upOrDown, revenue }) => {
     })
 
     const handleButtonClick = () => {
-        axios.post('http://localhost:3000/api/transactions', form).then(response => {console.log(response, 'Transação cadastrada!')})
+        axios.post('http://localhost:3000/api/transactions', form).then(response => {
+            console.log(response, 'Transação cadastrada!')
+        })
     }
 
     const handleChange = e => {
