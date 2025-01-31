@@ -11,6 +11,10 @@ const Home = () => {
 
   const [transactions, setTransactions] = useState([])
 
+  const handleNewTransaction = newTransaction => {
+    setTransactions(prevTransactions => [...prevTransactions, newTransaction])
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       axios.get('http://localhost:3000/api/transactions').then(response => {
@@ -35,6 +39,7 @@ const Home = () => {
             title='Receitas' 
             upOrDown='up-trend-icon.svg'
             revenue={true}
+            handleNewTransaction={handleNewTransaction}
           />  
 
           <div style={{
@@ -48,6 +53,7 @@ const Home = () => {
             title='Despesas'
             upOrDown='down-trend-icon.svg' 
             revenue={false}
+            handleNewTransaction={handleNewTransaction}
           />
         </div>
         <TransactionsInfo transactions={transactions} />

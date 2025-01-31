@@ -17,7 +17,7 @@ import axios from "axios";
 // import { Formik } from 'formik'
 // import { validationSchema, initialValues } from './formValues'
 
-const TransactionBox = ({ title, upOrDown, revenue }) => {
+const TransactionBox = ({ title, upOrDown, revenue, handleNewTransaction }) => {
 
     const [form, setForm] = useState({
         name: "",
@@ -29,6 +29,8 @@ const TransactionBox = ({ title, upOrDown, revenue }) => {
     const handleButtonClick = () => {
         axios.post('http://localhost:3000/api/transactions', form).then(response => {
             console.log(response, 'Transação cadastrada!')
+
+            handleNewTransaction(form)
         })
     }
 
