@@ -5,7 +5,7 @@ import { BigBox, TotalWrapper, TransactionsWrapper } from "./style"
 
 import formatCurrency from '@/src/utils/currency'
 
-const TransactionsInfo = ({ transactions }) => {
+const TransactionsInfo = ({ transactions, handleDeleteTransaction }) => {
 
     const totalMensal = transactions.reduce((acc, curr) => {
         const valor = parseInt(curr.value);
@@ -46,6 +46,7 @@ const TransactionsInfo = ({ transactions }) => {
                                     description={transaction.description}
                                     revenue={transaction.revenue}
                                     id={transaction._id}
+                                    deleteTransaction={handleDeleteTransaction}
                                 />
                             )
                         })

@@ -15,6 +15,16 @@ const Home = () => {
     setTransactions(prevTransactions => [...prevTransactions, newTransaction])
   }
 
+  const handleDeleteTransaction = transactionID => {
+    const updatedTransactions = transactions.filter((transaction) => transaction._id !== transactionID)
+
+    axios.delete(`http://localhost:3000/api/transactions/${transactionID}`).then(response => {
+      console.log(response, 'Transação deletada com sucesso!')
+    })
+
+    setTransactions(updatedTransactions)
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       axios.get('http://localhost:3000/api/transactions').then(response => {
@@ -25,8 +35,6 @@ const Home = () => {
 
     fetchData(); 
 }, []);
-
-  console.log(transactions)
 
   return (
     <>
@@ -58,7 +66,7 @@ const Home = () => {
             handleNewTransaction={handleNewTransaction}
           />
         </div>
-        <TransactionsInfo transactions={transactions} />
+        <TransactionsInfo handleDeleteTransaction={handleDeleteTransaction} transactions={transactions} />
       </Container>
     </>
   )
