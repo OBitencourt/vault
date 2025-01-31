@@ -11,6 +11,6 @@ const TransactionsModel = new mongoose.Schema({
     },
     description: String,
     revenue: Boolean
-})
+}, { versionKey: false})
 
 export default mongoose.models.transactions || mongoose.model('transactions', TransactionsModel)

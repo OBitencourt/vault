@@ -26,6 +26,8 @@ const Home = () => {
     fetchData(); 
 }, []);
 
+  console.log(transactions)
+
   return (
     <>
       <Header />

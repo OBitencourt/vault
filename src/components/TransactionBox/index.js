@@ -23,14 +23,14 @@ const TransactionBox = ({ title, upOrDown, revenue, handleNewTransaction }) => {
         name: "",
         value: "",
         description: "",
-        revenue: revenue
+        revenue: revenue,
     })
 
     const handleButtonClick = () => {
         axios.post('http://localhost:3000/api/transactions', form).then(response => {
-            console.log(response, 'Transação cadastrada!')
+            console.log(response.data.data, 'Transação cadastrada!')
 
-            handleNewTransaction(form)
+            handleNewTransaction(response.data.data)
         })
     }
 
