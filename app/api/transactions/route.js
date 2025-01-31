@@ -40,9 +40,9 @@ export async function POST(req) {
     revenue: revenue || false
   })
 
-  transaction.save()
+  const savedTransaction = await transaction.save()
 
-  return new Response(JSON.stringify({ message: "Transaction created", data: req.json() }), {
+  return new Response(JSON.stringify({ message: "Transaction created", data: savedTransaction }), {
     status: 201,
     headers: { "Content-Type": "application/json" },
   });
