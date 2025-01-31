@@ -19,10 +19,6 @@ import axios from "axios";
 
 const TransactionBox = ({ title, upOrDown, revenue }) => {
 
-    /*const handleFormSubmit = values => {
-        console.log(values)
-    }*/
-
     const [form, setForm] = useState({
         name: "",
         value: "",

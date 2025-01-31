@@ -4,8 +4,23 @@ import Header from "@/src/components/Header"
 import TransactionBox from "@/src/components/TransactionBox"
 import TransactionsInfo from "@/src/components/TransactionsInfo"
 import { Container } from "@mui/material"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
+
+  const [transactions, setTransactions] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      axios.get('http://localhost:3000/api/transactions').then(response => {
+        const { data } = response.data
+        setTransactions(data)
+      })
+    };
+
+    fetchData(); 
+}, []);
 
   return (
     <>
@@ -35,7 +50,7 @@ const Home = () => {
             revenue={false}
           />
         </div>
-        <TransactionsInfo />
+        <TransactionsInfo transactions={transactions} />
       </Container>
     </>
   )
