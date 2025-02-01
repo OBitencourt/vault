@@ -35,8 +35,6 @@ const TransactionsInfo = ({ transactions, handleDeleteTransaction }) => {
 
                     {
                         transactions.map(transaction => {
-
-                            console.log(formatCurrency(parseInt(transaction.value)))
                             return (
 
                                 <Transaction

@@ -14,6 +14,10 @@ const TransactionsModel = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    month: {
+        type: Number,
+        required: true
     }
 }, { versionKey: false})
 

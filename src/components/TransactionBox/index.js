@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Image from "next/image";
 import {
@@ -14,17 +14,23 @@ import {
 
 import axios from "axios";
 
-// import { Formik } from 'formik'
-// import { validationSchema, initialValues } from './formValues'
-
-const TransactionBox = ({ title, upOrDown, revenue, handleNewTransaction }) => {
-
+const TransactionBox = ({ title, upOrDown, revenue, handleNewTransaction, selectedMonth }) => {
     const [form, setForm] = useState({
         name: "",
         value: "",
         description: "",
         revenue: revenue,
+        month: selectedMonth
     })
+    
+    useEffect(() => {
+        setForm(prevForm => ({
+            ...prevForm,
+            month: selectedMonth
+        }));
+    }, [selectedMonth]);
+
+    console.log(form.month)
 
     const handleButtonClick = () => {
         axios.post('http://localhost:3000/api/transactions', form).then(response => {

@@ -35,14 +35,14 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      axios.get('http://localhost:3000/api/transactions').then(response => {
+      axios.get(`http://localhost:3000/api/transactions?month=${selectedMonth}`).then(response => {
         const { data } = response.data
         setTransactions(data)
       })
     };
 
     fetchData(); 
-}, []);
+}, [selectedMonth]);
 
   return (
     <>
@@ -76,6 +76,7 @@ const Home = () => {
             upOrDown='up-trend-icon.svg'
             revenue={true}
             handleNewTransaction={handleNewTransaction}
+            selectedMonth={selectedMonth}
           />  
 
           <div style={{
@@ -90,6 +91,7 @@ const Home = () => {
             upOrDown='down-trend-icon.svg' 
             revenue={false}
             handleNewTransaction={handleNewTransaction}
+            selectedMonth={selectedMonth}
           />
         </div>
         <TransactionsInfo handleDeleteTransaction={handleDeleteTransaction} transactions={transactions} />

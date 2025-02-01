@@ -2,13 +2,26 @@ import dbConnect from '@/src/utils/dbConnect'
 import TransactionsModel from '@/src/models/transactions.js'
 
 export async function GET(req) {
-    console.log(req, 'Ok.')
-    await dbConnect()
-    const transactions = await TransactionsModel.find()
 
-    return new Response(JSON.stringify({ success: "Transações achadas com sucesso!", data: transactions }), {
+  await dbConnect()
+
+  const url = new URL(req.url)
+  const searchParams = new URLSearchParams(url.search)
+  const month = searchParams.get('month')
+
+  const transactions = await TransactionsModel.find({ month: parseInt(month) });
+  
+  console.log(req, 'Ok.')
+  if (month) {
+
+    return new Response(JSON.stringify({ success: `Transações do mês ${month} achadas com sucesso!`, data: transactions }), {
       headers: { "Content-Type": "application/json" },
     });
+  } else {
+    return new Response(JSON.stringify({ error: "Erro ao achar as transações"}), {
+      headers: { "Content-Type": "application/json"}
+    })
+  }
 }
  
 export async function POST(req) {
@@ -18,7 +31,8 @@ export async function POST(req) {
     name,
     value,
     description,
-    revenue 
+    revenue,
+    month
   } = await req.json()
 
   if (!name || !value) {
@@ -36,8 +50,9 @@ export async function POST(req) {
   const transaction = new TransactionsModel({
     name,
     value,
+    month,
     description: description || '',
-    revenue: revenue || false
+    revenue: revenue || false,
   })
 
   const savedTransaction = await transaction.save()
