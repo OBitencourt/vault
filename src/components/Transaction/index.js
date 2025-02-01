@@ -1,10 +1,10 @@
 import Image from "next/image"
-import { IconWrapper, StyledTransaction } from "./style"
-
+import { IconWrapper, StyledTransaction, TitleWrapper } from "./style"
+import Popover from '../Popover/index'
 
 const Transaction = ({
     name,
-    // description,
+    description,
     value,
     revenue,
     id,
@@ -18,17 +18,19 @@ const Transaction = ({
     return (
         <>  
             <StyledTransaction $isRevenue={revenue}>
-                <div style={{display: 'flex', width: '100px'}}>
-                    <h3>{name}</h3>
-                    <Image 
-                        src={revenue === true ? '/images/up-trend-icon.svg' : '/images/down-trend-icon.svg'}
-                        alt="up"
-                        width={30}
-                        height={30}
-                        style={{marginLeft: '10px'}}
-                    />
+                <Popover description={description}>
 
-                </div>
+                    <TitleWrapper>
+                        <h3>{name}</h3>
+                        <Image 
+                            src={revenue === true ? '/images/up-trend-icon.svg' : '/images/down-trend-icon.svg'}
+                            alt="up"
+                            width={30}
+                            height={30}
+                            style={{marginLeft: '10px'}}
+                        />
+                    </TitleWrapper>
+                </Popover>
                 <h2>{value}</h2>
                 <IconWrapper onClick={() => handleButtonClick(id)}>
                     <Image 
