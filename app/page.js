@@ -6,11 +6,19 @@ import TransactionsInfo from "@/src/components/TransactionsInfo"
 import { Container } from "@mui/material"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { MonthTabs, TabButton } from "./style";
 
 const Home = () => {
 
   const [transactions, setTransactions] = useState([])
 
+  const months = [
+    "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", 
+    "Jul", "Ago", "Set", "Out", "Nov", "Dez"
+  ];
+
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
+  
   const handleNewTransaction = newTransaction => {
     setTransactions(prevTransactions => [...prevTransactions, newTransaction])
   }
@@ -44,6 +52,24 @@ const Home = () => {
         maxWidth='lg'
         sx={{paddingTop: '100px', display: 'flex'}}
       >
+        <MonthTabs>
+          {months.map((month, index) => (
+            <TabButton
+              key={index}
+              active={selectedMonth === index + 1}
+              onClick={() => setSelectedMonth(index + 1)}
+            >
+              {month}
+            </TabButton>
+          ))}
+        </MonthTabs>
+
+      </Container>
+      <Container
+        maxWidth='lg'
+        sx={{paddingTop: '50px', display: 'flex'}}
+      >
+
         <div>
           <TransactionBox 
             title='Receitas' 

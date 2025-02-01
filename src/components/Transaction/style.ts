@@ -31,11 +31,11 @@ export const TitleWrapper = styled.div`
     background-color: transparent;
     transition: all 700ms cubic-bezier(0.075, 0.82, 0.165, 1);
     padding: 4px 12px;
-    border-radius: 0.4em;
+    border-radius: 0.3em;
     cursor: default;
 
     &:hover {
-        background-color:rgb(230, 229, 229);
+        background-color:rgb(240, 237, 237);
     }
 `
 

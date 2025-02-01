@@ -10,7 +10,11 @@ const TransactionsModel = new mongoose.Schema({
         required: [true, 'O valor da transação é obrigatório']
     },
     description: String,
-    revenue: Boolean
+    revenue: Boolean,
+    date: {
+        type: Date,
+        default: Date.now
+    }
 }, { versionKey: false})
 
 export default mongoose.models.transactions || mongoose.model('transactions', TransactionsModel)
