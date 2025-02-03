@@ -6,9 +6,9 @@ export const BigBox = styled.div`
     min-height: 700px;
     width: 500px;
     background-color: var(--color-primary);
-    padding: 30px;
+    padding: 24px;
     margin-left: 50px;
-    border-radius: 45px;
+    border-radius: 8px;
     box-shadow:
         0px 0px 1px rgba(0, 0, 0, 0.02),
         0px 0px 2.4px rgba(0, 0, 0, 0.028),
@@ -20,9 +20,9 @@ export const BigBox = styled.div`
 `
 
 export const TransactionsWrapper = styled.div`
-    height: 600px;
+    height: 610px;
     background-color: white;
-    border-radius: 22.5px;
+    border-radius: 4px;
     font-family: var(--font-koho);
     padding: 20px;
     text-align: center;
@@ -39,7 +39,7 @@ export const TransactionsWrapper = styled.div`
 export const TotalWrapper = styled.div`
     height: 120px;
     background-color: white;
-    border-radius: 22.5px;
+    border-radius: 4px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Box = styled.div`
     background-color: white;
-    border-radius: 22.5px;
+    border-radius: 8px;
     box-shadow:
         0px 0px 1px rgba(0, 0, 0, 0.02),
         0px 0px 2.4px rgba(0, 0, 0, 0.028),
@@ -26,7 +26,7 @@ export const MainTitle = styled.div`
     font-size: 1.7em;
     color: var(--color-tiertiary);
     font-weight: 500;
-    border-bottom: 1px solid var(--color-tiertiary);
+    border-bottom: 1px solid var(--color-tiertiary-weak);
     padding-bottom: 10px;
     display: flex;
     justify-content: space-between;
@@ -48,7 +48,7 @@ export const StyledInput = styled.input`
     width: 48%;
     font-family: var(--font-koho);
     font-size: 1.1em;
-    border-radius: 7px;
+    border-radius: 4px;
     outline: none;
 
     &::placeholder {
@@ -81,8 +81,8 @@ export const StyledTextField = styled.textarea`
 
 export const AddButton = styled.button`
     background-color: var(--color-primary);
-    border-radius: 7px;
-    padding: 5px 10px;
+    border-radius: 20%;
+    padding:  10px;
     align-self: flex-end;
     margin-top: 10px;
     transition: all 100ms ease-in-out;

@@ -37,6 +37,13 @@ const TransactionBox = ({ title, upOrDown, revenue, handleNewTransaction, select
             console.log(response.data.data, 'Transação cadastrada!')
 
             handleNewTransaction(response.data.data)
+            setForm({
+                name: "",
+                value: "",
+                description: "",
+                revenue: revenue,
+                month: selectedMonth
+            })
         })
     }
 
@@ -86,7 +93,7 @@ const TransactionBox = ({ title, upOrDown, revenue, handleNewTransaction, select
             </InputsWrapper>
             <StyledTextField
                 name="description"
-                placeholder="Descrição da transação.."
+                placeholder="Detalhes da transação.."
                 onChange={(e) => handleChange(e)}
                 value={form.description}
             />
